@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace MunicipalServices
-
+{ 
     // Represents a single issue reported by a citizen.
     // This class acts as a model to hold all the data for a service request.
     public class Issue
