@@ -6,6 +6,8 @@ namespace MunicipalServices
         // Required designer variable.
         private System.ComponentModel.IContainer components = null;
 
+        // Clean up any resources being used.
+        // "disposing" True if managed resources should be disposed; otherwise, false.
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -17,6 +19,9 @@ namespace MunicipalServices
 
         #region Windows Form Designer generated code
 
+
+        // Required method for Designer support - do not modify
+        // The contents of this method with the code editor.
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
