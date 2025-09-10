@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservices\\municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservices\\municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EventsForm.cs",
+              "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServices\\EventsForm.cs",
+              "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs",
+              "RelativeToolTip": "MunicipalServices\\EventsForm.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwAwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T08:00:06.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventsForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs",
+              "RelativeDocumentMoniker": "MunicipalServices\\EventsForm.cs",
+              "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs [Design]",
+              "RelativeToolTip": "MunicipalServices\\EventsForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T08:00:04.382Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
