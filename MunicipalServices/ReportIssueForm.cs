@@ -73,7 +73,7 @@ namespace MunicipalServices
             );
 
             // Add the new issue to our static list (in-memory data store).
-            Program.ReportedIssues.Add(newIssue);
+            DataManager.ReportedIssues.Add(newIssue);
 
             // --- 3. User Engagement and Feedback ---
             // Disable buttons to prevent multiple submissions.
