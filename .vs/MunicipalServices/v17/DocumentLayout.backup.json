@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservices\\municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservices\\municipalservices\\mainmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\mainmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservices\\municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservices\\municipalservices\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservices\\municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\eventsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +31,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MainMenu.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\MainMenu.Designer.cs",
+              "RelativeDocumentMoniker": "MunicipalServices\\MainMenu.Designer.cs",
+              "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\MainMenu.Designer.cs",
+              "RelativeToolTip": "MunicipalServices\\MainMenu.Designer.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAkwIAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T13:40:00.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\Program.cs",
+              "RelativeDocumentMoniker": "MunicipalServices\\Program.cs",
+              "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\Program.cs",
+              "RelativeToolTip": "MunicipalServices\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T13:37:08.209Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EventsForm.cs",
               "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs",
               "RelativeDocumentMoniker": "MunicipalServices\\EventsForm.cs",
               "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs",
               "RelativeToolTip": "MunicipalServices\\EventsForm.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwAwAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-10T08:00:06.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EventsForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs",
               "RelativeDocumentMoniker": "MunicipalServices\\EventsForm.cs",
               "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServices\\MunicipalServices\\EventsForm.cs [Design]",
               "RelativeToolTip": "MunicipalServices\\EventsForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T08:00:04.382Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-10T08:00:04.382Z"
             }
           ]
         }

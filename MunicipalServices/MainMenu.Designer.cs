@@ -58,9 +58,7 @@ namespace MunicipalServices
             this.btnReportIssue.Click += new System.EventHandler(this.btnReportIssue_Click);
             // 
             // btnLocalEvents
-            // 
-            this.btnLocalEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.btnLocalEvents.Enabled = false;
+            this.btnLocalEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
             this.btnLocalEvents.FlatAppearance.BorderSize = 0;
             this.btnLocalEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLocalEvents.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,8 +67,9 @@ namespace MunicipalServices
             this.btnLocalEvents.Name = "btnLocalEvents";
             this.btnLocalEvents.Size = new System.Drawing.Size(250, 50);
             this.btnLocalEvents.TabIndex = 2;
-            this.btnLocalEvents.Text = "Local Events (Coming Soon)";
+            this.btnLocalEvents.Text = "Local Events & Announcements";
             this.btnLocalEvents.UseVisualStyleBackColor = false;
+            this.btnLocalEvents.Click += new System.EventHandler(this.btnLocalEvents_Click);
             // 
             // btnRequestStatus
             // 

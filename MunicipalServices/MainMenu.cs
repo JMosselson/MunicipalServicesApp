@@ -3,7 +3,6 @@ using System.Windows.Forms;
 
 namespace MunicipalServices
 {
-
     // The main menu form of the application.
     // It presents the user with the main tasks they can perform.
     public partial class MainMenu : Form
@@ -11,23 +10,26 @@ namespace MunicipalServices
         public MainMenu()
         {
             InitializeComponent();
+            btnLocalEvents.Enabled = true;
+            btnLocalEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
+            btnLocalEvents.Text = "Local Events & Announcements";
         }
 
         // Event handler for the "Report an Issue" button click.
-        // This is the only active button as per the requirements.
         private void btnReportIssue_Click(object sender, EventArgs e)
         {
-            // Create an instance of the ReportIssueForm.
             ReportIssueForm reportForm = new ReportIssueForm();
-
-            // Hide the main menu.
             this.Hide();
-
-            // Show the report issue form as a dialog. This means the user
-            // must interact with it before returning to other parts of the app.
             reportForm.ShowDialog();
+            this.Show();
+        }
 
-            // After the report form is closed, show the main menu again.
+        // Event handler for the "Local Events" button click.
+        private void btnLocalEvents_Click(object sender, EventArgs e)
+        {
+            EventsForm eventsForm = new EventsForm();
+            this.Hide();
+            eventsForm.ShowDialog();
             this.Show();
         }
     }
