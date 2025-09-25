@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -74,6 +75,9 @@ namespace MunicipalServices
 
             // Add the new issue to our static list (in-memory data store).
             DataManager.ReportedIssues.Add(newIssue);
+            
+            // Also create a ServiceRequest for status tracking integration
+            DataManager.CreateServiceRequestFromIssue(newIssue);
 
             // --- 3. User Engagement and Feedback ---
             // Disable buttons to prevent multiple submissions.
@@ -92,13 +96,125 @@ namespace MunicipalServices
             lblEngagementStatus.Text = $"Logged with Reference ID: {newIssue.ReferenceId}";
             engagementProgressBar.Value = 100;
 
-            // Show a final success message to the user.
-            MessageBox.Show($"Thank you for your submission!\n\nYour Reference ID is: {newIssue.ReferenceId}\n\nPlease use this ID to track the status of your request in the future.",
-                            "Submission Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Show a custom success dialog with copyable reference ID
+            ShowSuccessDialog(newIssue.ReferenceId);
 
-            // Close the form after a short delay.
-            await Task.Delay(1500);
+            // Close the form after user acknowledges
             this.Close();
+        }
+        
+        // Show a custom success dialog with copyable reference ID
+        private void ShowSuccessDialog(string referenceId)
+        {
+            Form successForm = new Form()
+            {
+                Text = "Submission Successful",
+                Size = new Size(500, 300),
+                StartPosition = FormStartPosition.CenterParent,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false
+            };
+
+            Label titleLabel = new Label()
+            {
+                Text = "Thank you for your submission!",
+                Font = new Font("Arial", 14, FontStyle.Bold),
+                ForeColor = System.Drawing.Color.FromArgb(44, 62, 80),
+                Location = new Point(20, 20),
+                Size = new Size(450, 30),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            Label messageLabel = new Label()
+            {
+                Text = "Your issue has been successfully logged. Please save your Reference ID below to track the status of your request:",
+                Font = new Font("Arial", 10),
+                Location = new Point(20, 60),
+                Size = new Size(450, 40),
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            Label refLabel = new Label()
+            {
+                Text = "Reference ID:",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(20, 120),
+                Size = new Size(100, 20)
+            };
+
+            TextBox refTextBox = new TextBox()
+            {
+                Text = referenceId,
+                Font = new Font("Courier New", 12, FontStyle.Bold),
+                Location = new Point(20, 145),
+                Size = new Size(300, 25),
+                ReadOnly = true,
+                BackColor = System.Drawing.Color.LightYellow,
+                BorderStyle = BorderStyle.FixedSingle,
+                TextAlign = HorizontalAlignment.Center
+            };
+
+            Button copyButton = new Button()
+            {
+                Text = "Copy to Clipboard",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(330, 143),
+                Size = new Size(120, 29),
+                BackColor = System.Drawing.Color.FromArgb(52, 152, 219),
+                ForeColor = System.Drawing.Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+            copyButton.FlatAppearance.BorderSize = 0;
+
+            Button okButton = new Button()
+            {
+                Text = "OK",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(200, 200),
+                Size = new Size(100, 35),
+                BackColor = System.Drawing.Color.FromArgb(46, 204, 113),
+                ForeColor = System.Drawing.Color.White,
+                FlatStyle = FlatStyle.Flat,
+                DialogResult = DialogResult.OK
+            };
+            okButton.FlatAppearance.BorderSize = 0;
+
+            // Add tooltips
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(refTextBox, "Click to select all text, then Ctrl+C to copy");
+            toolTip.SetToolTip(copyButton, "Click to copy Reference ID to clipboard");
+
+            // Copy button click event
+            copyButton.Click += async (sender, e) =>
+            {
+                Clipboard.SetText(referenceId);
+                copyButton.Text = "Copied!";
+                copyButton.BackColor = System.Drawing.Color.FromArgb(46, 204, 113);
+                
+                await Task.Delay(2000);
+                
+                // Check if the button is still valid and has a handle before invoking
+                if (!copyButton.IsDisposed && copyButton.IsHandleCreated)
+                {
+                    copyButton.Text = "Copy to Clipboard";
+                    copyButton.BackColor = System.Drawing.Color.FromArgb(52, 152, 219);
+                }
+            };
+
+            // Select all text when textbox is clicked
+            refTextBox.Click += (sender, e) => refTextBox.SelectAll();
+            refTextBox.Enter += (sender, e) => refTextBox.SelectAll();
+
+            successForm.Controls.Add(titleLabel);
+            successForm.Controls.Add(messageLabel);
+            successForm.Controls.Add(refLabel);
+            successForm.Controls.Add(refTextBox);
+            successForm.Controls.Add(copyButton);
+            successForm.Controls.Add(okButton);
+
+            successForm.AcceptButton = okButton;
+            successForm.ShowDialog(this);
         }
     }
 }

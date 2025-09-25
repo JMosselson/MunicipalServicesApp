@@ -85,6 +85,7 @@ namespace MunicipalServices
             this.btnRequestStatus.TabIndex = 3;
             this.btnRequestStatus.Text = "Service Request Status (Coming Soon)";
             this.btnRequestStatus.UseVisualStyleBackColor = false;
+            this.btnRequestStatus.Click += new System.EventHandler(this.btnRequestStatus_Click);
             // 
             // lblSubtitle
             // 

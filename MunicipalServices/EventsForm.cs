@@ -70,7 +70,8 @@ namespace MunicipalServices
         // Handles selection changes in the category filter dropdown.
         private void cmbFilterCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedCategory = cmbFilterCategory.SelectedItem.ToString();
+            string? selectedCategory = cmbFilterCategory.SelectedItem?.ToString();
+            if (selectedCategory == null) return;
 
             if (selectedCategory == "All Categories")
             {
@@ -94,11 +95,14 @@ namespace MunicipalServices
             // If an item is selected, display its full description.
             if (lsvEvents.SelectedItems.Count > 0)
             {
-                var selectedEvent = (Event)lsvEvents.SelectedItems[0].Tag;
-                rtbEventDetails.Text = $"Event: {selectedEvent.Name}\n" +
-                                       $"Category: {selectedEvent.Category}\n" +
-                                       $"Date: {selectedEvent.Date:dddd, dd MMMM yyyy}\n\n" +
-                                       $"Description:\n{selectedEvent.Description}";
+                var selectedEvent = (Event?)lsvEvents.SelectedItems[0].Tag;
+                if (selectedEvent != null)
+                {
+                    rtbEventDetails.Text = $"Event: {selectedEvent.Name}\n" +
+                                           $"Category: {selectedEvent.Category}\n" +
+                                           $"Date: {selectedEvent.Date:dddd, dd MMMM yyyy}\n\n" +
+                                           $"Description:\n{selectedEvent.Description}";
+                }
             }
         }
 
@@ -133,7 +137,25 @@ namespace MunicipalServices
             {
                 var listViewItem = new ListViewItem(rec.Name);
                 listViewItem.SubItems.Add(rec.Category);
+                listViewItem.Tag = rec; // Store the full Event object in the Tag property.
                 lsvRecommendations.Items.Add(listViewItem);
+            }
+        }
+        
+        // Handles selection changes in the recommendations ListView.
+        private void lsvRecommendations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // If a recommendation is selected, display its full description.
+            if (lsvRecommendations.SelectedItems.Count > 0)
+            {
+                var selectedEvent = (Event?)lsvRecommendations.SelectedItems[0].Tag;
+                if (selectedEvent != null)
+                {
+                    rtbEventDetails.Text = $"Event: {selectedEvent.Name}\n" +
+                                           $"Category: {selectedEvent.Category}\n" +
+                                           $"Date: {selectedEvent.Date:dddd, dd MMMM yyyy}\n\n" +
+                                           $"Description:\n{selectedEvent.Description}";
+                }
             }
         }
     }

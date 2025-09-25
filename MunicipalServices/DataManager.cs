@@ -11,6 +11,23 @@ namespace MunicipalServices
         // --- Data from Part 1 ---
         public static List<Issue> ReportedIssues { get; private set; } = new List<Issue>();
 
+        // --- Data Structures for Part 3: Service Requests ---
+        
+        // Binary Search Tree to store and efficiently search Service Requests by Reference ID
+        public static BinarySearchTree ServiceRequests { get; private set; } = new BinarySearchTree();
+        
+        // AVL Tree for balanced service request storage with guaranteed O(log n) operations
+        public static AVLTree AVLServiceRequests { get; private set; } = new AVLTree();
+        
+        // Red-Black Tree for balanced service request storage with good practical performance
+        public static RedBlackTree RBServiceRequests { get; private set; } = new RedBlackTree();
+        
+        // Min-Heap for priority queuing of urgent service requests
+        public static MinHeap PriorityQueue { get; private set; } = new MinHeap();
+        
+        // Graph to represent the dispatch grid for optimal route calculation
+        public static Graph DispatchGrid { get; private set; } = new Graph();
+
         // --- Data Structures for Part 2: Events ---
             
 
@@ -96,6 +113,101 @@ namespace MunicipalServices
             AddEvent(new Event("Local Art Exhibition", "Culture", new DateTime(2025, 11, 7), "Showcasing artwork from talented local artists and students."));
             AddEvent(new Event("Music in the Park", "Culture", new DateTime(2025, 11, 21), "Live outdoor concert featuring local bands and musicians."));
             AddEvent(new Event("Christmas Carol Service", "Culture", new DateTime(2025, 12, 22), "Traditional carol singing event at the community center."));
+            
+            // Initialize Service Request data structures
+            InitializeDispatchGrid();
+            InitializeServiceRequests();
+        }
+
+        // Initialize the dispatch grid with sample locations and routes
+        private static void InitializeDispatchGrid()
+        {
+            // Add nodes (locations) to the dispatch grid
+            DispatchGrid.AddNode("Dispatch Center");
+            DispatchGrid.AddNode("Downtown");
+            DispatchGrid.AddNode("Residential Area A");
+            DispatchGrid.AddNode("Residential Area B");
+            DispatchGrid.AddNode("Industrial Zone");
+            DispatchGrid.AddNode("Commercial District");
+            DispatchGrid.AddNode("Parks and Recreation");
+            DispatchGrid.AddNode("Hospital District");
+            DispatchGrid.AddNode("School Zone");
+            DispatchGrid.AddNode("Shopping Center");
+            
+            // Add edges (routes) with travel times in minutes
+            DispatchGrid.AddEdge("Dispatch Center", "Downtown", 5);
+            DispatchGrid.AddEdge("Dispatch Center", "Residential Area A", 8);
+            DispatchGrid.AddEdge("Dispatch Center", "Industrial Zone", 12);
+            DispatchGrid.AddEdge("Downtown", "Commercial District", 4);
+            DispatchGrid.AddEdge("Downtown", "Hospital District", 6);
+            DispatchGrid.AddEdge("Residential Area A", "Residential Area B", 7);
+            DispatchGrid.AddEdge("Residential Area A", "School Zone", 5);
+            DispatchGrid.AddEdge("Residential Area B", "Shopping Center", 6);
+            DispatchGrid.AddEdge("Industrial Zone", "Commercial District", 10);
+            DispatchGrid.AddEdge("Commercial District", "Shopping Center", 8);
+            DispatchGrid.AddEdge("Hospital District", "School Zone", 9);
+            DispatchGrid.AddEdge("Parks and Recreation", "School Zone", 4);
+            DispatchGrid.AddEdge("Parks and Recreation", "Shopping Center", 7);
+        }
+        
+        // Initialize sample service requests for testing and demonstration
+        private static void InitializeServiceRequests()
+        {
+            // Create sample service requests with various statuses and categories
+            var request1 = new ServiceRequest("SR-20250920-001", "Pothole on Main Street", "Roads", 
+                "Large pothole causing traffic issues on Main Street near the intersection with Oak Avenue.", 
+                "Downtown", new DateTime(2025, 9, 20));
+            request1.UpdateStatus("Under Review");
+            request1.UpdateStatus("Assigned to Road Maintenance Team");
+            InsertIntoAllTrees(request1);
+            
+            var request2 = new ServiceRequest("SR-20250921-002", "Street Light Out", "Utilities", 
+                "Street light not working on Pine Street, creating safety concerns for pedestrians.", 
+                "Residential Area A", new DateTime(2025, 9, 21));
+            request2.UpdateStatus("Under Review");
+            InsertIntoAllTrees(request2);
+            
+            var request3 = new ServiceRequest("SR-20250922-003", "Water Leak", "Utilities", 
+                "Water pipe leak causing flooding in the parking area of the shopping center.", 
+                "Shopping Center", new DateTime(2025, 9, 22));
+            request3.UpdateStatus("Under Review");
+            request3.UpdateStatus("Emergency Team Dispatched");
+            request3.UpdateStatus("Repair In Progress");
+            InsertIntoAllTrees(request3);
+            // High priority - emergency
+            PriorityQueue.Insert(new PriorityServiceRequest(request3, 1));
+            
+            var request4 = new ServiceRequest("SR-20250923-004", "Trash Collection Missed", "Sanitation", 
+                "Weekly trash collection was missed in Residential Area B for the second time this month.", 
+                "Residential Area B", new DateTime(2025, 9, 23));
+            InsertIntoAllTrees(request4);
+            // Medium priority
+            PriorityQueue.Insert(new PriorityServiceRequest(request4, 3));
+            
+            var request5 = new ServiceRequest("SR-20250924-005", "Park Equipment Damage", "Parks", 
+                "Playground equipment in the community park has been vandalized and poses safety risks.", 
+                "Parks and Recreation", new DateTime(2025, 9, 24));
+            request5.UpdateStatus("Under Review");
+            request5.UpdateStatus("Maintenance Team Assigned");
+            InsertIntoAllTrees(request5);
+            // Medium priority
+            PriorityQueue.Insert(new PriorityServiceRequest(request5, 2));
+            
+            var request6 = new ServiceRequest("SR-20250925-006", "Traffic Signal Malfunction", "Roads", 
+                "Traffic signal at busy intersection is not working properly, causing traffic congestion.", 
+                "Commercial District", new DateTime(2025, 9, 25));
+            request6.UpdateStatus("Under Review");
+            InsertIntoAllTrees(request6);
+            // High priority - traffic safety
+            PriorityQueue.Insert(new PriorityServiceRequest(request6, 1));
+        }
+        
+        // Helper method to insert service request into all tree data structures
+        private static void InsertIntoAllTrees(ServiceRequest request)
+        {
+            ServiceRequests.Insert(request);
+            AVLServiceRequests.Insert(request);
+            RBServiceRequests.Insert(request);
         }
 
         // Helper method to add a new event to our data structures.
@@ -124,6 +236,101 @@ namespace MunicipalServices
             {
                 UserSearchHistory.Dequeue();
             }
+        }
+        
+        // Method to create a ServiceRequest from an Issue for integration between the two systems
+        public static ServiceRequest CreateServiceRequestFromIssue(Issue issue)
+        {
+            if (issue == null) return null;
+            
+            // Create a ServiceRequest using the Issue data
+            var serviceRequest = new ServiceRequest(
+                issue.ReferenceId, 
+                $"Issue: {issue.Category} - {issue.Location}", 
+                issue.Category, 
+                issue.Description, 
+                issue.Location, 
+                issue.ReportedDate
+            );
+            
+            // Add the ServiceRequest to all our data structures
+            InsertIntoAllTrees(serviceRequest);
+            
+            // Determine priority based on category (example logic)
+            int priority = GetPriorityByCategory(issue.Category);
+            PriorityQueue.Insert(new PriorityServiceRequest(serviceRequest, priority));
+            
+            return serviceRequest;
+        }
+        
+        // Helper method to determine priority based on category
+        private static int GetPriorityByCategory(string category)
+        {
+            return category?.ToLower() switch
+            {
+                "utilities" => 1,  // High priority
+                "roads" => 1,      // High priority
+                "sanitation" => 2, // Medium priority
+                "parks" => 3,      // Low priority
+                _ => 2             // Default medium priority
+            };
+        }
+        
+        // Method to get all service requests for browsing functionality
+        public static List<ServiceRequest> GetAllServiceRequests()
+        {
+            return ServiceRequests.GetAllRequests();
+        }
+        
+        // Method to get service requests filtered by status
+        public static List<ServiceRequest> GetServiceRequestsByStatus(string status)
+        {
+            var allRequests = GetAllServiceRequests();
+            return allRequests.Where(req => req.GetCurrentStatus().Contains(status)).ToList();
+        }
+        
+        // Method to get service requests filtered by category
+        public static List<ServiceRequest> GetServiceRequestsByCategory(string category)
+        {
+            var allRequests = GetAllServiceRequests();
+            return allRequests.Where(req => req.Category.Equals(category, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+        
+        // Method to get high priority service requests from the heap
+        public static List<PriorityServiceRequest> GetHighPriorityRequests(int count = 5)
+        {
+            var result = new List<PriorityServiceRequest>();
+            var tempHeap = new MinHeap();
+            
+            // Copy items to temp heap to preserve original
+            foreach (var item in PriorityQueue.GetAllItems())
+            {
+                tempHeap.Insert(item);
+            }
+            
+            // Extract top priority items
+            for (int i = 0; i < count && tempHeap.Count > 0; i++)
+            {
+                result.Add(tempHeap.ExtractMin());
+            }
+            
+            return result;
+        }
+        
+        // Method to get dispatch network optimization using MST
+        public static List<Graph.Edge> GetOptimalDispatchNetwork()
+        {
+            return DispatchGrid.KruskalMST();
+        }
+        
+        // Method to demonstrate graph traversals
+        public static Dictionary<string, List<string>> GetGraphTraversals(string startNode = "Dispatch Center")
+        {
+            return new Dictionary<string, List<string>>
+            {
+                ["DFS"] = DispatchGrid.DepthFirstSearch(startNode),
+                ["BFS"] = DispatchGrid.BreadthFirstSearch(startNode)
+            };
         }
     }
 
