@@ -112,7 +112,8 @@ namespace MunicipalServices
             string lastSearchTerm = DataManager.UserSearchHistory.Last();
             var lastSearchedEvent = DataManager.EventsByDate.Values
                 .SelectMany(list => list)
-                .FirstOrDefault(ev => ev.Name.ToLower().Contains(lastSearchTerm));
+                .FirstOrDefault(ev => ev.Name.ToLower().Contains(lastSearchTerm) ||
+                                     ev.Description.ToLower().Contains(lastSearchTerm));
 
             if (lastSearchedEvent == null) return; // No matching event found for the last search.
 
@@ -123,7 +124,7 @@ namespace MunicipalServices
                 .SelectMany(list => list)
                 .Where(ev => ev.Category == targetCategory &&
                              ev.Name != lastSearchedEvent.Name && // Exclude the event itself
-                             ev.Date.Date >= DateTime.Today)
+                             ev.Date.Date >= DateTime.Today) // Only show future events
                 .OrderBy(ev => ev.Date)
                 .Take(5) // Limit to 5 recommendations.
                 .ToList();

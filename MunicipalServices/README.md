@@ -15,7 +15,7 @@ This repository contains a C# .NET Framework Windows Forms application developed
 ---
 
 ## 1. Project Overview
-This application is designed for a South African municipality to streamline the process of reporting service delivery issues. It provides a user-friendly interface for citizens to submit detailed reports, which can then be managed by the municipality. The current version focuses on the core **"Report Issues"** functionality. Future updates will expand the application to include features for local events and service request tracking.
+This application is designed for a South African municipality to streamline citizen engagement with municipal services. It provides a comprehensive platform that combines issue reporting with community information access. The application currently features two fully functional modules: **"Report Issues"** for submitting service delivery problems, and **"Local Events & Announcements"** for discovering community activities and municipal updates. Future updates will expand the application to include service request status tracking and additional community engagement features.
 
 ---
 
@@ -23,7 +23,7 @@ This application is designed for a South African municipality to streamline the 
 ### Main Menu
 A central navigation screen with three options:
 * **Report Issues**: Fully implemented and functional.
-* **Local Events and Announcements**: Disabled for future implementation.
+* **Local Events and Announcements**: Fully implemented and functional.
 * **Service Request Status**: Disabled for future implementation.
 
 ### Issue Reporting Form
@@ -31,10 +31,23 @@ A detailed form for submitting issues, which includes:
 * **Location Input**: A textbox for specifying the issue's location.
 * **Category Selection**: A dropdown list for classifying the issue (e.g., Sanitation, Roads, Utilities).
 * **Detailed Description**: A rich text box for providing comprehensive details.
-* **Media Attachment**: A button to open a file dialog, allowing users to attach relevant photos or documents.
+* **Media Attachment**: A button to open a file dialog, allowing users to attach relevant photos or documents.  
 
-### Data Storage
-User-reported issues are stored in a simple, in-memory `List<Issue>` for the application's lifecycle.
+### Local Events & Announcements
+A comprehensive form for viewing and discovering community information, which includes:
+- **Chronological Event List**: Displays events sorted by date in an easy-to-read ListView format.  
+- **Search Functionality**: A search bar with button to find events by keywords across names and descriptions.  
+- **Category Filtering**: A dropdown to filter events by category (e.g., Community, Sports, Utilities, Markets, Roads).  
+- **Detailed Event View**: Shows the full details of a selected event including date, category, and complete description.  
+- **Smart Recommendation Engine**: Suggests up to 5 relevant upcoming events based on the user's search history and interests.
+- **Interactive Interface**: Click-to-select events with real-time detail updates and seamless navigation.  
+
+### Data Storage & Management
+- **List\<Issue\>**: Used for simple, flexible in-memory storage of reported issues with unique reference IDs.  
+- **SortedDictionary\<DateTime, List\<Event\>\>**: Automatically stores events in chronological order for efficient date-based operations.  
+- **HashSet\<string\>**: Stores unique event categories for fast lookup and dropdown population.  
+- **Queue\<string\>**: Manages recent search history in FIFO order (limited to 5 recent searches for recommendations).
+- **Centralized DataManager**: Static class providing unified access to all application data with automatic initialization of sample events.
 
 ### User Engagement
 The application implements a **Transparent Feedback Loop** to keep the user informed throughout the submission process.
@@ -43,51 +56,36 @@ The application implements a **Transparent Feedback Loop** to keep the user info
 
 ## 3. Technical Requirements
 To compile and run this application, you will need the following:
-* **Framework**: .NET Framework (e.g., 4.7.2 or newer)
+* **Framework**: .NET 8.0 (Windows target framework)
 * **Language**: C#
-* **IDE**: Microsoft Visual Studio (e.g., 2019, 2022)
-* **Project Type**: Windows Forms App (.NET Framework)
+* **IDE**: Microsoft Visual Studio (2019 or newer)
+* **Project Type**: Windows Forms App (.NET)
+* **Operating System**: Windows (Windows Forms dependency)
+
+### Key Technical Features
+* **Async/Await Pattern**: Used in form submissions for responsive UI
+* **LINQ Integration**: Efficient data querying and filtering throughout the application
+* **Windows Forms**: Modern .NET implementation with designer support
+* **In-Memory Data Management**: Fast, session-based data storage with automatic initialization
 
 ---
 
 ## 4. How to Compile and Run
-Follow these steps to get the project running on your local machine.
+Follow these steps to run the project locally:
 
-### **1. Clone or Download the Code**
-Ensure you have all the necessary files: `Program.cs`, `MainMenu.cs`, `MainMenu.Designer.cs`, `ReportIssueForm.cs`, `ReportIssueForm.Designer.cs`, and `Issue.cs`.
+### 1. Clone or Download the Code
 
-### **2. Create a New Project in Visual Studio**
-* Launch Visual Studio and click on "**Create a new project**".
-* In the project templates, search for and select "**Windows Forms App (.NET Framework)**". Be careful **not** to select the ".NET" or ".NET Core" version.
-* Click "**Next**".
-
-### **3. Configure Your Project**
-* **Project Name**: Enter `MunicipalServices`.
-* **Location**: Choose a directory to save your project.
-* **Framework**: Select a .NET Framework version (e.g., .NET Framework 4.7.2).
-* Click "**Create**".
-
-### **4. Add the Code Files to Your Project**
-* In the **Solution Explorer** pane on the right, right-click on the project name (`MunicipalServices`).
-* Select **Add > Existing Item...**.
-* Navigate to where you saved the code files and select all of them.
-* Click "**Add**". You can delete the default `Form1.cs` file that Visual Studio creates.
-
-### **5. Set the Startup Object**
-* Open the `Program.cs` file. The line `Application.Run(new MainMenu());` should already be configured to run the `MainMenu` form first. If not, ensure it is set correctly.
-
-### **6. Compile and Run**
-* Press **F5** or click the "**Start**" button (with the green play icon) in the Visual Studio toolbar.
-* The application will compile and the **Main Menu** window will appear.
+git clone https://github.com/your-username/MunicipalServices.git
 
 ---
-
 ## 5. How to Use the Application
 ### **1. Launch the Application**
 The **Main Menu** will be displayed upon launch.
 
+## Using the Report Issues Feature
+
 ### **2. Start a Report**
-Click the "**Report an Issue**" button. The other buttons are disabled for this version.
+Click the "**Report an Issue**" button to access the issue reporting functionality.
 
 ### **3. Fill in the Details**
 * The **Report an Issue** form will open.
@@ -104,9 +102,54 @@ Click the "**Submit Report**" button.
 * A message box will appear, confirming the submission and providing a unique **Reference ID**.
 * The form will automatically close, and you will be returned to the **Main Menu**.
 
+## Using the Local Events & Announcements Feature
+
+### **6. Access Local Events**
+Click the "**Local Events & Announcements**" button from the main menu.
+
+### **7. Browse Events**
+* The **Events** form will display a chronological list of all upcoming local events and announcements.
+* Events are displayed in a list showing Date, Event Name, and Category.
+* Click on any event in the list to view its full details in the description panel.
+
+### **8. Search for Events**
+* Use the **Search** text box to find specific events by entering keywords.
+* Click the "**Search**" button or press Enter to filter events containing your search terms.
+* Search works across event names and descriptions.
+
+### **9. Filter by Category**
+* Use the **Category Filter** dropdown to view events from specific categories only.
+* Available categories include: Community, Sports, Utilities, Markets, Roads, and others.
+* Select "All Categories" to view all events again.
+
+### **10. View Recommendations**
+* After performing a search, the **Recommendations** panel will automatically suggest other relevant events.
+* Recommendations are based on your search history and show similar events in the same category.
+* The system keeps track of your last 5 searches to improve recommendations.
+
+### **11. Return to Main Menu**
+Click the "**Back to Menu**" button to return to the main application menu.
+
 ---
 
 ## 6. User Engagement Strategy
-The application implements a **Transparent Feedback Loop** to build user trust and encourage future engagement. This is achieved by providing immediate, visual feedback upon submission. The progress bar and status messages (e.g., "Submitting...", "Report Received!", "Logged with Reference ID...") reassure the user that their report has been successfully processed and recorded. This confirms that their contribution is valued and helps to foster a sense of active participation in the community.
+The application implements multiple engagement strategies to build user trust and encourage active community participation:
+
+### Transparent Feedback Loop (Issue Reporting)
+- **Visual Progress Indicators**: Real-time progress bar and status messages during report submission
+- **Step-by-step Feedback**: Clear status updates ("Submitting...", "Report Received!", "Logged with Reference ID...")
+- **Unique Reference IDs**: Each report receives a trackable reference ID (format: MS-YYYYMMDD-XXXXX)
+- **Confirmation Messaging**: Success messages reassure users their reports are valued and recorded
+
+### Personalized Event Discovery
+- **Search History Tracking**: System remembers user interests through search patterns
+- **Smart Recommendations**: Suggests relevant upcoming events based on previous searches
+- **Category-based Filtering**: Allows users to focus on their areas of interest
+- **Interactive Event Details**: Click-to-view functionality for comprehensive event information
+
+### Community Information Access
+- **Pre-loaded Sample Data**: Application comes with diverse community events (markets, meetings, sports, utilities)
+- **Chronological Organization**: Events displayed in logical date order for easy planning
+- **Multi-category Coverage**: Supports various community needs (Community, Sports, Utilities, Markets, Roads)
 
 Gemini Chat link For Comments and README.md: https://g.co/gemini/share/210b550ce628
