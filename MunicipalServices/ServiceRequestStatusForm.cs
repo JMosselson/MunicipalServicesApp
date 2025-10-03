@@ -89,12 +89,12 @@ namespace MunicipalServices
         {
             // Configure ListView columns
             lvServiceRequests.Columns.Clear();
-            lvServiceRequests.Columns.Add("Reference ID", 120);
-            lvServiceRequests.Columns.Add("Title", 150);
-            lvServiceRequests.Columns.Add("Category", 100);
-            lvServiceRequests.Columns.Add("Status", 120);
-            lvServiceRequests.Columns.Add("Location", 100);
-            lvServiceRequests.Columns.Add("Date", 90);
+            lvServiceRequests.Columns.Add("Reference ID", 140);
+            lvServiceRequests.Columns.Add("Title", 180);
+            lvServiceRequests.Columns.Add("Category", 110);
+            lvServiceRequests.Columns.Add("Status", 140);
+            lvServiceRequests.Columns.Add("Location", 120);
+            lvServiceRequests.Columns.Add("Date", 100);
             
             // Load all service requests
             var allRequests = DataManager.GetAllServiceRequests();
@@ -118,8 +118,11 @@ namespace MunicipalServices
         {
             if (lvServiceRequests.SelectedItems.Count > 0)
             {
-                currentRequest = (ServiceRequest)lvServiceRequests.SelectedItems[0].Tag;
-                DisplayDetails();
+                currentRequest = (ServiceRequest?)lvServiceRequests.SelectedItems[0].Tag;
+                if (currentRequest != null)
+                {
+                    DisplayDetails();
+                }
             }
         }
         

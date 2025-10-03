@@ -188,6 +188,7 @@
             this.lsvRecommendations.TabIndex = 20;
             this.lsvRecommendations.UseCompatibleStateImageBehavior = false;
             this.lsvRecommendations.View = System.Windows.Forms.View.Details;
+            this.lsvRecommendations.SelectedIndexChanged += new System.EventHandler(this.lsvRecommendations_SelectedIndexChanged);
             // 
             // colRecName
             // 

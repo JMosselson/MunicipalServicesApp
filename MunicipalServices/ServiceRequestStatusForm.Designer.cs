@@ -17,6 +17,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtReferenceId = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.lblTableTitle = new System.Windows.Forms.Label();
             this.lvServiceRequests = new System.Windows.Forms.ListView();
             this.pnlDetails = new System.Windows.Forms.Panel();
             this.lblLocationLabel = new System.Windows.Forms.Label();
@@ -72,6 +73,17 @@
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // lblTableTitle
+            // 
+            this.lblTableTitle.AutoSize = true;
+            this.lblTableTitle.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.lblTableTitle.Location = new System.Drawing.Point(720, 40);
+            this.lblTableTitle.Name = "lblTableTitle";
+            this.lblTableTitle.Size = new System.Drawing.Size(214, 22);
+            this.lblTableTitle.TabIndex = 6;
+            this.lblTableTitle.Text = "Current Service Requests";
+            // 
             // lvServiceRequests
             // 
             this.lvServiceRequests.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -79,7 +91,7 @@
             this.lvServiceRequests.GridLines = true;
             this.lvServiceRequests.Location = new System.Drawing.Point(590, 70);
             this.lvServiceRequests.Name = "lvServiceRequests";
-            this.lvServiceRequests.Size = new System.Drawing.Size(400, 540);
+            this.lvServiceRequests.Size = new System.Drawing.Size(680, 540);
             this.lvServiceRequests.TabIndex = 4;
             this.lvServiceRequests.UseCompatibleStateImageBehavior = false;
             this.lvServiceRequests.View = System.Windows.Forms.View.Details;
@@ -103,7 +115,7 @@
             this.pnlDetails.Controls.Add(this.lblRequestIdLabel);
             this.pnlDetails.Location = new System.Drawing.Point(12, 140);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(560, 470);
+            this.pnlDetails.Size = new System.Drawing.Size(570, 500);
             this.pnlDetails.TabIndex = 3;
             this.pnlDetails.Visible = false;
             // 
@@ -130,11 +142,11 @@
             // txtRouteInfo
             // 
             this.txtRouteInfo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRouteInfo.Location = new System.Drawing.Point(19, 360);
+            this.txtRouteInfo.Location = new System.Drawing.Point(19, 388);
             this.txtRouteInfo.Multiline = true;
             this.txtRouteInfo.Name = "txtRouteInfo";
             this.txtRouteInfo.ReadOnly = true;
-            this.txtRouteInfo.Size = new System.Drawing.Size(520, 90);
+            this.txtRouteInfo.Size = new System.Drawing.Size(530, 100);
             this.txtRouteInfo.TabIndex = 11;
             // 
             // btnCalculateRoute
@@ -145,7 +157,7 @@
             this.btnCalculateRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalculateRoute.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalculateRoute.ForeColor = System.Drawing.Color.White;
-            this.btnCalculateRoute.Location = new System.Drawing.Point(369, 319);
+            this.btnCalculateRoute.Location = new System.Drawing.Point(379, 347);
             this.btnCalculateRoute.Name = "btnCalculateRoute";
             this.btnCalculateRoute.Size = new System.Drawing.Size(170, 35);
             this.btnCalculateRoute.TabIndex = 10;
@@ -157,7 +169,7 @@
             // 
             this.lblHistoryLabel.AutoSize = true;
             this.lblHistoryLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHistoryLabel.Location = new System.Drawing.Point(15, 205);
+            this.lblHistoryLabel.Location = new System.Drawing.Point(15, 213);
             this.lblHistoryLabel.Name = "lblHistoryLabel";
             this.lblHistoryLabel.Size = new System.Drawing.Size(119, 19);
             this.lblHistoryLabel.TabIndex = 9;
@@ -168,9 +180,9 @@
             this.lstStatusHistory.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstStatusHistory.FormattingEnabled = true;
             this.lstStatusHistory.ItemHeight = 16;
-            this.lstStatusHistory.Location = new System.Drawing.Point(19, 227);
+            this.lstStatusHistory.Location = new System.Drawing.Point(19, 235);
             this.lstStatusHistory.Name = "lstStatusHistory";
-            this.lstStatusHistory.Size = new System.Drawing.Size(340, 116);
+            this.lstStatusHistory.Size = new System.Drawing.Size(530, 100);
             this.lstStatusHistory.TabIndex = 8;
             // 
             // txtDescription
@@ -180,7 +192,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(520, 60);
+            this.txtDescription.Size = new System.Drawing.Size(530, 70);
             this.txtDescription.TabIndex = 7;
             // 
             // lblDescriptionLabel
@@ -271,7 +283,7 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(31, 590);
+            this.btnBack.Location = new System.Drawing.Point(31, 630);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(150, 35);
             this.btnBack.TabIndex = 5;
@@ -284,9 +296,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1020, 640);
+            this.ClientSize = new System.Drawing.Size(1300, 680);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblEnterId);
+            this.Controls.Add(this.lblTableTitle);
             this.Controls.Add(this.lvServiceRequests);
             this.Controls.Add(this.pnlDetails);
             this.Controls.Add(this.btnSearch);
@@ -308,6 +321,7 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox txtReferenceId;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lblTableTitle;
         private System.Windows.Forms.ListView lvServiceRequests;
         private System.Windows.Forms.Panel pnlDetails;
         private System.Windows.Forms.Label lblRequestIdLabel;

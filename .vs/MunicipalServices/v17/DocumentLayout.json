@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServicesApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|c:\\users\\mosse\\onedrive\\documents\\visual studio projects\\municipalservicesapp\\municipalservices\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{7A7157BF-BC29-4B5D-89C4-AD2350A2CBB3}|MunicipalServices\\MunicipalServices.csproj|solutionrelative:municipalservices\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServicesApp\\MunicipalServices\\README.md",
+              "RelativeDocumentMoniker": "MunicipalServices\\README.md",
+              "ToolTip": "C:\\Users\\mosse\\OneDrive\\Documents\\Visual Studio Projects\\MunicipalServicesApp\\MunicipalServices\\README.md",
+              "RelativeToolTip": "MunicipalServices\\README.md",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-10-03T12:51:45.534Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
