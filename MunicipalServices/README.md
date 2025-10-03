@@ -15,7 +15,7 @@ This repository contains a C# .NET Framework Windows Forms application developed
 ---
 
 ## 1. Project Overview
-This application is designed for a South African municipality to streamline citizen engagement with municipal services. It provides a comprehensive platform that combines issue reporting with community information access. The application currently features two fully functional modules: **"Report Issues"** for submitting service delivery problems, and **"Local Events & Announcements"** for discovering community activities and municipal updates. Future updates will expand the application to include service request status tracking and additional community engagement features.
+This application is designed for a South African municipality to streamline citizen engagement with municipal services. It provides a comprehensive platform that combines issue reporting with community information access. The application currently features three fully functional modules: **"Report Issues"** for submitting service delivery problems, **"Local Events & Announcements"** for discovering community activities and municipal updates, and **"Service Request Status"** for tracking submitted requests. The application demonstrates advanced data structures and algorithms for efficient municipal service management.
 
 ---
 
@@ -24,7 +24,7 @@ This application is designed for a South African municipality to streamline citi
 A central navigation screen with three options:
 * **Report Issues**: Fully implemented and functional.
 * **Local Events and Announcements**: Fully implemented and functional.
-* **Service Request Status**: Disabled for future implementation.
+* **Service Request Status**: Fully implemented and functional.
 
 ### Issue Reporting Form
 A detailed form for submitting issues, which includes:
@@ -42,15 +42,31 @@ A comprehensive form for viewing and discovering community information, which in
 - **Smart Recommendation Engine**: Suggests up to 5 relevant upcoming events based on the user's search history and interests.
 - **Interactive Interface**: Click-to-select events with real-time detail updates and seamless navigation.  
 
+### Service Request Status
+A comprehensive tracking system for monitoring submitted service requests, which includes:
+- **Current Service Requests Table**: View all active requests in a large, scrollable table with clear column headers and the title "Current Service Requests".
+- **Search by Reference ID**: Enter your reference number to quickly locate your specific request.
+- **Detailed Request View**: Click any request in the table or search by reference number to see full details in a spacious, readable format including:
+  - Reference ID
+  - Status (highlighted for visibility)
+  - Category
+  - Location
+  - Complete description
+  - Status history timeline
+  - Route information (when available)
+- **Advanced Data Structures**: Utilizes AVL Trees, Red-Black Trees, and Min-Heaps for efficient data management and priority handling.
+- **Responsive Layout**: All information is displayed without crowding, ensuring easy readability.
+
 ### Data Storage & Management
 - **List\<Issue\>**: Used for simple, flexible in-memory storage of reported issues with unique reference IDs.  
 - **SortedDictionary\<DateTime, List\<Event\>\>**: Automatically stores events in chronological order for efficient date-based operations.  
 - **HashSet\<string\>**: Stores unique event categories for fast lookup and dropdown population.  
 - **Queue\<string\>**: Manages recent search history in FIFO order (limited to 5 recent searches for recommendations).
-- **Centralized DataManager**: Static class providing unified access to all application data with automatic initialization of sample events.
+- **Advanced Data Structures**: AVL Trees, Red-Black Trees, and Min-Heaps for service request management and priority queuing.
+- **Centralized DataManager**: Static class providing unified access to all application data with automatic initialization of comprehensive sample data.
 
 ### User Engagement
-The application implements a **Transparent Feedback Loop** to keep the user informed throughout the submission process.
+The application implements a **Transparent Feedback Loop** to keep the user informed throughout all processes.
 
 ---
 
@@ -67,18 +83,29 @@ To compile and run this application, you will need the following:
 * **LINQ Integration**: Efficient data querying and filtering throughout the application
 * **Windows Forms**: Modern .NET implementation with designer support
 * **In-Memory Data Management**: Fast, session-based data storage with automatic initialization
+* **Advanced Algorithms**: Implementation of tree structures and heaps for educational demonstration
 
 ---
 
 ## 4. How to Compile and Run
 Follow these steps to run the project locally:
 
-### 1. Clone or Download the Code
+### 1. Clone The Repo
 
-git clone https://github.com/your-username/MunicipalServices.git
+git clone https://github.com/JMosselson/MunicipalServicesApp.git
+
+### 2. Open in Visual Studio
+- Open the solution file (.sln) in Visual Studio
+- Ensure .NET 8.0 is installed
+
+### 3. Build and Run
+- Build the solution (Ctrl+Shift+B)
+- Run the application (F5)
 
 ---
+
 ## 5. How to Use the Application
+
 ### **1. Launch the Application**
 The **Main Menu** will be displayed upon launch.
 
@@ -125,9 +152,37 @@ Click the "**Local Events & Announcements**" button from the main menu.
 ### **10. View Recommendations**
 * After performing a search, the **Recommendations** panel will automatically suggest other relevant events.
 * Recommendations are based on your search history and show similar events in the same category.
+* Click on any recommended event to view its details.
 * The system keeps track of your last 5 searches to improve recommendations.
 
 ### **11. Return to Main Menu**
+Click the "**Back to Menu**" button to return to the main application menu.
+
+## Using the Service Request Status Feature
+
+### **12. Access Service Request Status**
+Click the "**Service Request Status**" button from the main menu.
+
+### **13. View All Requests**
+* The form displays a large table titled "Current Service Requests" showing all active requests.
+* The table includes columns for Reference ID, Status, Category, Location, and Date Submitted.
+* All data is clearly visible without crowding.
+
+### **14. Search for Specific Request**
+* Enter a reference ID in the search box at the top of the form.
+* Click "**Search**" to locate your specific request.
+* The request details will appear in the expanded details panel.
+
+### **15. View Request Details**
+* Click on any request in the table to view detailed information.
+* The details panel shows:
+  - Complete request information
+  - Status history timeline
+  - Location details
+  - Route information (if available)
+* All information is displayed in a spacious, readable format.
+
+### **16. Return to Main Menu**
 Click the "**Back to Menu**" button to return to the main application menu.
 
 ---
@@ -147,9 +202,17 @@ The application implements multiple engagement strategies to build user trust an
 - **Category-based Filtering**: Allows users to focus on their areas of interest
 - **Interactive Event Details**: Click-to-view functionality for comprehensive event information
 
+### Comprehensive Request Tracking
+- **Real-time Status Updates**: Clear visibility into request progress and current status
+- **Detailed History Timeline**: Complete audit trail of all status changes
+- **Advanced Search Capabilities**: Quick lookup by reference ID with immediate results
+- **Intuitive Interface Design**: Spacious layout ensures all information is easily readable
+
 ### Community Information Access
-- **Pre-loaded Sample Data**: Application comes with diverse community events (markets, meetings, sports, utilities)
-- **Chronological Organization**: Events displayed in logical date order for easy planning
+- **Pre-loaded Sample Data**: Application comes with diverse community events and service requests
+- **Chronological Organization**: Events and requests displayed in logical order for easy planning
 - **Multi-category Coverage**: Supports various community needs (Community, Sports, Utilities, Markets, Roads)
 
-Gemini Chat link For Comments and README.md: https://g.co/gemini/share/210b550ce628
+---
+
+**Gemini Chat link For Comments and README.md**: https://g.co/gemini/share/210b550ce628
