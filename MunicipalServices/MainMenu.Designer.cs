@@ -1,13 +1,9 @@
-﻿
-namespace MunicipalServices
+﻿namespace MunicipalServices
 {
     partial class MainMenu
     {
-        // Required designer variable.
         private System.ComponentModel.IContainer components = null;
 
-        // Clean up any resources being used.
-        // "disposing" True if managed resources should be disposed; otherwise, false.
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -19,9 +15,6 @@ namespace MunicipalServices
 
         #region Windows Form Designer generated code
 
-
-        // Required method for Designer support - do not modify
-        // The contents of this method with the code editor.
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
@@ -58,6 +51,7 @@ namespace MunicipalServices
             this.btnReportIssue.Click += new System.EventHandler(this.btnReportIssue_Click);
             // 
             // btnLocalEvents
+            // 
             this.btnLocalEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
             this.btnLocalEvents.FlatAppearance.BorderSize = 0;
             this.btnLocalEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -73,8 +67,7 @@ namespace MunicipalServices
             // 
             // btnRequestStatus
             // 
-            this.btnRequestStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.btnRequestStatus.Enabled = false;
+            this.btnRequestStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
             this.btnRequestStatus.FlatAppearance.BorderSize = 0;
             this.btnRequestStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRequestStatus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,7 +76,7 @@ namespace MunicipalServices
             this.btnRequestStatus.Name = "btnRequestStatus";
             this.btnRequestStatus.Size = new System.Drawing.Size(250, 50);
             this.btnRequestStatus.TabIndex = 3;
-            this.btnRequestStatus.Text = "Service Request Status (Coming Soon)";
+            this.btnRequestStatus.Text = "Service Request Status";
             this.btnRequestStatus.UseVisualStyleBackColor = false;
             this.btnRequestStatus.Click += new System.EventHandler(this.btnRequestStatus_Click);
             // 
@@ -118,6 +111,7 @@ namespace MunicipalServices
             this.PerformLayout();
 
         }
+
         #endregion
 
         private System.Windows.Forms.Label lblTitle;

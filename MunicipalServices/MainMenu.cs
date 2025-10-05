@@ -4,16 +4,16 @@ using System.Windows.Forms;
 namespace MunicipalServices
 {
     // The main menu form of the application.
-    // It presents the user with the main tasks they can perform.
     public partial class MainMenu : Form
     {
         public MainMenu()
         {
+            // Enable the Local Events & Announcements button now that it's fully implemented
             InitializeComponent();
             btnLocalEvents.Enabled = true;
             btnLocalEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
             btnLocalEvents.Text = "Local Events & Announcements";
-            
+
             // Enable the Service Request Status button now that it's fully implemented
             btnRequestStatus.Enabled = true;
             btnRequestStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
