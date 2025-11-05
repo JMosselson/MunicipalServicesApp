@@ -153,170 +153,53 @@ namespace MunicipalServices
         // Initialize sample service requests for testing and demonstration
         private static void InitializeServiceRequests()
         {
-            // Create sample service requests with various statuses, categories, and proper times
-            var request1 = new ServiceRequest("SR-20250915-001", "Pothole on Main Street", "Roads", 
+            // Create sample service requests with various statuses and categories
+            var request1 = new ServiceRequest("SR-20250920-001", "Pothole on Main Street", "Roads", 
                 "Large pothole causing traffic issues on Main Street near the intersection with Oak Avenue.", 
-                "Downtown", new DateTime(2025, 9, 15, 8, 30, 0));
+                "Downtown", new DateTime(2025, 9, 20));
             request1.UpdateStatus("Under Review");
             request1.UpdateStatus("Assigned to Road Maintenance Team");
-            request1.UpdateStatus("Repair Completed");
             InsertIntoAllTrees(request1);
             
-            var request2 = new ServiceRequest("SR-20250916-002", "Street Light Out", "Utilities", 
+            var request2 = new ServiceRequest("SR-20250921-002", "Street Light Out", "Utilities", 
                 "Street light not working on Pine Street, creating safety concerns for pedestrians.", 
-                "Residential Area A", new DateTime(2025, 9, 16, 19, 45, 0));
+                "Residential Area A", new DateTime(2025, 9, 21));
             request2.UpdateStatus("Under Review");
-            request2.UpdateStatus("Assigned to Electrical Team");
             InsertIntoAllTrees(request2);
             
-            var request3 = new ServiceRequest("SR-20250918-003", "Water Leak", "Utilities", 
+            var request3 = new ServiceRequest("SR-20250922-003", "Water Leak", "Utilities", 
                 "Water pipe leak causing flooding in the parking area of the shopping center.", 
-                "Shopping Center", new DateTime(2025, 9, 18, 14, 20, 0));
+                "Shopping Center", new DateTime(2025, 9, 22));
             request3.UpdateStatus("Under Review");
             request3.UpdateStatus("Emergency Team Dispatched");
             request3.UpdateStatus("Repair In Progress");
             InsertIntoAllTrees(request3);
+            // High priority - emergency
             PriorityQueue.Insert(new PriorityServiceRequest(request3, 1));
             
-            var request4 = new ServiceRequest("SR-20250920-004", "Trash Collection Missed", "Sanitation", 
+            var request4 = new ServiceRequest("SR-20250923-004", "Trash Collection Missed", "Sanitation", 
                 "Weekly trash collection was missed in Residential Area B for the second time this month.", 
-                "Residential Area B", new DateTime(2025, 9, 20, 7, 15, 0));
-            request4.UpdateStatus("Under Review");
-            request4.UpdateStatus("Collection Team Notified");
+                "Residential Area B", new DateTime(2025, 9, 23));
             InsertIntoAllTrees(request4);
+            // Medium priority
             PriorityQueue.Insert(new PriorityServiceRequest(request4, 3));
             
-            var request5 = new ServiceRequest("SR-20250922-005", "Park Equipment Damage", "Parks", 
+            var request5 = new ServiceRequest("SR-20250924-005", "Park Equipment Damage", "Parks", 
                 "Playground equipment in the community park has been vandalized and poses safety risks.", 
-                "Parks and Recreation", new DateTime(2025, 9, 22, 16, 30, 0));
+                "Parks and Recreation", new DateTime(2025, 9, 24));
             request5.UpdateStatus("Under Review");
             request5.UpdateStatus("Maintenance Team Assigned");
-            request5.UpdateStatus("Safety Barrier Installed");
             InsertIntoAllTrees(request5);
+            // Medium priority
             PriorityQueue.Insert(new PriorityServiceRequest(request5, 2));
             
-            var request6 = new ServiceRequest("SR-20250923-006", "Traffic Signal Malfunction", "Roads", 
+            var request6 = new ServiceRequest("SR-20250925-006", "Traffic Signal Malfunction", "Roads", 
                 "Traffic signal at busy intersection is not working properly, causing traffic congestion.", 
-                "Commercial District", new DateTime(2025, 9, 23, 12, 10, 0));
+                "Commercial District", new DateTime(2025, 9, 25));
             request6.UpdateStatus("Under Review");
-            request6.UpdateStatus("Assigned to Traffic Department");
             InsertIntoAllTrees(request6);
+            // High priority - traffic safety
             PriorityQueue.Insert(new PriorityServiceRequest(request6, 1));
-
-            // Additional service requests for more comprehensive data
-            var request7 = new ServiceRequest("SR-20250924-007", "Broken Storm Drain", "Utilities", 
-                "Storm drain cover is broken and creating a hazard for vehicles and pedestrians.", 
-                "Industrial Zone", new DateTime(2025, 9, 24, 9, 45, 0));
-            request7.UpdateStatus("Under Review");
-            request7.UpdateStatus("Assigned to Infrastructure Team");
-            InsertIntoAllTrees(request7);
-            PriorityQueue.Insert(new PriorityServiceRequest(request7, 1));
-
-            var request8 = new ServiceRequest("SR-20250925-008", "Graffiti Removal", "Parks", 
-                "Graffiti vandalism on park benches and pavilion structures needs cleaning.", 
-                "Parks and Recreation", new DateTime(2025, 9, 25, 11, 20, 0));
-            request8.UpdateStatus("Under Review");
-            InsertIntoAllTrees(request8);
-            PriorityQueue.Insert(new PriorityServiceRequest(request8, 3));
-
-            var request9 = new ServiceRequest("SR-20250926-009", "Noise Complaint", "Community", 
-                "Ongoing construction noise exceeding permitted hours in residential area.", 
-                "Residential Area A", new DateTime(2025, 9, 26, 22, 15, 0));
-            request9.UpdateStatus("Under Review");
-            request9.UpdateStatus("Inspector Assigned");
-            request9.UpdateStatus("Violation Notice Issued");
-            InsertIntoAllTrees(request9);
-            PriorityQueue.Insert(new PriorityServiceRequest(request9, 2));
-
-            var request10 = new ServiceRequest("SR-20250927-010", "Sidewalk Repair", "Roads", 
-                "Cracked and uneven sidewalk creating trip hazards for pedestrians.", 
-                "School Zone", new DateTime(2025, 9, 27, 13, 40, 0));
-            request10.UpdateStatus("Under Review");
-            request10.UpdateStatus("Assigned to Road Maintenance");
-            InsertIntoAllTrees(request10);
-            PriorityQueue.Insert(new PriorityServiceRequest(request10, 2));
-
-            var request11 = new ServiceRequest("SR-20250928-011", "Fire Hydrant Blocked", "Utilities", 
-                "Fire hydrant access blocked by overgrown vegetation and parked vehicles.", 
-                "Hospital District", new DateTime(2025, 9, 28, 15, 55, 0));
-            request11.UpdateStatus("Under Review");
-            request11.UpdateStatus("Emergency - High Priority");
-            request11.UpdateStatus("Vegetation Cleared");
-            InsertIntoAllTrees(request11);
-            PriorityQueue.Insert(new PriorityServiceRequest(request11, 1));
-
-            var request12 = new ServiceRequest("SR-20250929-012", "Public Wi-Fi Down", "Technology", 
-                "Public Wi-Fi hotspot in shopping center not functioning properly.", 
-                "Shopping Center", new DateTime(2025, 9, 29, 10, 25, 0));
-            request12.UpdateStatus("Under Review");
-            request12.UpdateStatus("IT Team Assigned");
-            InsertIntoAllTrees(request12);
-            PriorityQueue.Insert(new PriorityServiceRequest(request12, 3));
-
-            var request13 = new ServiceRequest("SR-20250930-013", "Bus Stop Maintenance", "Transportation", 
-                "Bus stop shelter has broken glass and needs cleaning and repair.", 
-                "Commercial District", new DateTime(2025, 9, 30, 17, 10, 0));
-            request13.UpdateStatus("Under Review");
-            request13.UpdateStatus("Maintenance Scheduled");
-            InsertIntoAllTrees(request13);
-            PriorityQueue.Insert(new PriorityServiceRequest(request13, 2));
-
-            var request14 = new ServiceRequest("SR-20251001-014", "Animal Control", "Community", 
-                "Stray dogs reported in residential area, safety concern for children.", 
-                "Residential Area B", new DateTime(2025, 10, 1, 8, 0, 0));
-            request14.UpdateStatus("Under Review");
-            request14.UpdateStatus("Animal Control Dispatched");
-            InsertIntoAllTrees(request14);
-            PriorityQueue.Insert(new PriorityServiceRequest(request14, 2));
-
-            var request15 = new ServiceRequest("SR-20251002-015", "Sewer Odor", "Sanitation", 
-                "Strong sewer odor emanating from manholes in downtown area.", 
-                "Downtown", new DateTime(2025, 10, 2, 14, 30, 0));
-            request15.UpdateStatus("Under Review");
-            request15.UpdateStatus("Sanitation Team Investigating");
-            InsertIntoAllTrees(request15);
-            PriorityQueue.Insert(new PriorityServiceRequest(request15, 2));
-
-            var request16 = new ServiceRequest("SR-20251003-016", "Parking Meter Broken", "Transportation", 
-                "Multiple parking meters not accepting payments on High Street.", 
-                "Commercial District", new DateTime(2025, 10, 3, 11, 45, 0));
-            request16.UpdateStatus("Under Review");
-            InsertIntoAllTrees(request16);
-            PriorityQueue.Insert(new PriorityServiceRequest(request16, 3));
-
-            var request17 = new ServiceRequest("SR-20251004-017", "Street Cleaning", "Sanitation", 
-                "Debris and litter accumulation on Market Street after weekend events.", 
-                "Downtown", new DateTime(2025, 10, 4, 6, 20, 0));
-            request17.UpdateStatus("Under Review");
-            request17.UpdateStatus("Cleaning Crew Assigned");
-            request17.UpdateStatus("Completed");
-            InsertIntoAllTrees(request17);
-            PriorityQueue.Insert(new PriorityServiceRequest(request17, 3));
-
-            var request18 = new ServiceRequest("SR-20251005-018", "Power Outage", "Utilities", 
-                "Partial power outage affecting several blocks in industrial zone.", 
-                "Industrial Zone", new DateTime(2025, 10, 5, 4, 15, 0));
-            request18.UpdateStatus("Under Review");
-            request18.UpdateStatus("Emergency - Utility Company Notified");
-            request18.UpdateStatus("Power Restored");
-            InsertIntoAllTrees(request18);
-            PriorityQueue.Insert(new PriorityServiceRequest(request18, 1));
-
-            var request19 = new ServiceRequest("SR-20251006-019", "Tree Trimming", "Parks", 
-                "Overgrown tree branches blocking traffic signals and street signs.", 
-                "Residential Area A", new DateTime(2025, 10, 6, 13, 0, 0));
-            request19.UpdateStatus("Under Review");
-            request19.UpdateStatus("Assigned to Parks Department");
-            InsertIntoAllTrees(request19);
-            PriorityQueue.Insert(new PriorityServiceRequest(request19, 2));
-
-            var request20 = new ServiceRequest("SR-20251007-020", "Road Salt Shortage", "Roads", 
-                "Request for additional road salt supplies before winter season.", 
-                "Dispatch Center", new DateTime(2025, 10, 7, 9, 30, 0));
-            request20.UpdateStatus("Under Review");
-            request20.UpdateStatus("Supply Order Placed");
-            InsertIntoAllTrees(request20);
-            PriorityQueue.Insert(new PriorityServiceRequest(request20, 3));
         }
         
         // Helper method to insert service request into all tree data structures
