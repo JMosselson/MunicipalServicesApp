@@ -10,7 +10,8 @@ This repository contains a C# .NET Framework Windows Forms application developed
 3.  **Technical Requirements**
 4.  **How to Compile and Run**
 5.  **How to Use the Application**
-6.  **User Engagement Strategy**
+6.  **Updates and Improvements from Feedback**
+7.  **User Engagement Strategy**
 
 ---
 
@@ -54,44 +55,16 @@ A comprehensive tracking system for monitoring submitted service requests, which
   - Complete description
   - Status history timeline
   - Route information (when available)
-- **Custom Data Structures**: Utilizes custom-implemented Binary Search Tree, AVL Tree, Red-Black Tree, and Min-Heap for efficient data management, balanced storage, and priority-based queuing
-- **Advanced Graph Algorithms**: Custom Graph implementation with Dijkstra's algorithm for optimal dispatch routing, plus DFS/BFS traversals and MST calculations
+- **Advanced Data Structures**: Utilizes AVL Trees, Red-Black Trees, and Min-Heaps for efficient data management and priority handling.
 - **Responsive Layout**: All information is displayed without crowding, ensuring easy readability.
 
 ### Data Storage & Management
-
-#### **Custom Data Structure Implementations**
-This project features **entirely custom-built** data structures, implemented from scratch to demonstrate advanced algorithmic knowledge:
-
-##### **Custom Tree Structures**
-- **Binary Search Tree**: Custom `Node` and `BinarySearchTree` classes with recursive insertion, search operations, and in-order traversal
-- **AVL Tree**: Self-balancing tree with custom `AVLNode` class, height tracking, balance factor calculation, and four rotation cases (LL, RR, LR, RL)
-- **Red-Black Tree**: Advanced self-balancing tree with `RBNode` class, color properties (Red/Black enum), sentinel node pattern, and complex rebalancing logic with color flips and rotations
-
-##### **Custom Heap Implementation**
-- **Min-Heap**: Priority queue with custom `PriorityServiceRequest` class, array-based heap structure, heapify-up/down operations for efficient priority-based service request handling
-
-##### **Custom Graph Implementation**
-- **Graph**: Adjacency list representation with custom algorithms:
-  - **Dijkstra's Shortest Path Algorithm**: For optimal dispatch routing
-  - **Depth-First Search (DFS)**: Graph traversal for network analysis
-  - **Breadth-First Search (BFS)**: Level-order graph traversal
-  - **Kruskal's Minimum Spanning Tree (MST)**: With Union-Find data structure
-  - **Prim's MST Algorithm**: Alternative MST implementation
-  - **Custom Edge Class**: With weight comparison for graph optimization
-
-**Important Note**: These are **NOT .NET built-in collections** - all tree node structures, balancing algorithms, rotation logic, heap operations, and graph traversals were implemented from scratch. Each custom data type can be instantiated and used as a complete, functional data structure.
-
-#### **Built-in .NET Collections** (Used Appropriately)
-For standard data management needs, the application uses appropriate .NET collections where they are the right tool:
-- **List\<Issue\>**: Used for simple, flexible in-memory storage of reported issues with unique reference IDs
-- **SortedDictionary\<DateTime, List\<Event\>\>**: Automatically stores events in chronological order for efficient date-based operations
-- **HashSet\<string\>**: Stores unique event categories for fast O(1) lookup and dropdown population
-- **Queue\<string\>**: Manages recent search history in FIFO order (limited to 5 recent searches for recommendations)
-- **Dictionary\<K, V\>**: Used internally within the custom Graph implementation for adjacency list representation
-
-#### **Centralized Data Management**
-- **DataManager**: Static class providing unified access to all application data with automatic initialization of comprehensive sample data
+- **List\<Issue\>**: Used for simple, flexible in-memory storage of reported issues with unique reference IDs.  
+- **SortedDictionary\<DateTime, List\<Event\>\>**: Automatically stores events in chronological order for efficient date-based operations.  
+- **HashSet\<string\>**: Stores unique event categories for fast lookup and dropdown population.  
+- **Queue\<string\>**: Manages recent search history in FIFO order (limited to 5 recent searches for recommendations).
+- **Advanced Data Structures**: AVL Trees, Red-Black Trees, and Min-Heaps for service request management and priority queuing.
+- **Centralized DataManager**: Static class providing unified access to all application data with automatic initialization of comprehensive sample data.
 
 ### User Engagement
 The application implements a **Transparent Feedback Loop** to keep the user informed throughout all processes.
@@ -111,8 +84,7 @@ To compile and run this application, you will need the following:
 * **LINQ Integration**: Efficient data querying and filtering throughout the application
 * **Windows Forms**: Modern .NET implementation with designer support
 * **In-Memory Data Management**: Fast, session-based data storage with automatic initialization
-* **Custom Data Structures**: Hand-coded implementations of Binary Search Trees, AVL Trees, Red-Black Trees, Min-Heaps, and Graphs with multiple algorithms
-* **Advanced Algorithms**: Original implementations including tree rotations, heap operations, Dijkstra's shortest path, DFS/BFS traversals, and MST algorithms (Kruskal & Prim)
+* **Advanced Algorithms**: Implementation of tree structures and heaps for educational demonstration
 
 ---
 
@@ -216,7 +188,61 @@ Click the "**Back to Menu**" button to return to the main application menu.
 
 ---
 
-## 6. User Engagement Strategy
+## 6. Updates and Improvements from Feedback
+
+Throughout the development process, valuable feedback was received and incorporated to enhance the application's functionality, usability, and technical implementation.
+
+### Feedback from Part 1: Report Issues Feature
+
+**Feedback Received:**
+- Need for better user feedback during submission process
+- Request for trackable reference IDs for follow-up
+- Suggestion to improve form validation
+
+**Improvements Implemented:**
+- Added transparent progress bar with step-by-step status updates
+- Implemented unique reference ID generation system (MS-YYYYMMDD-XXXXX format)
+- Created custom success dialog with copyable reference ID
+- Enhanced form validation to prevent incomplete submissions
+- Integrated with service request tracking system for seamless status monitoring
+
+### Feedback from Part 2: Local Events & Announcements
+
+**Feedback Received:**
+- Events should be more discoverable and personalized
+- Need for better categorization and filtering options
+- Recommendation system would improve user engagement
+
+**Improvements Implemented:**
+- Implemented smart search functionality across event names and descriptions
+- Added comprehensive category filtering system with clear dropdown options
+- Created intelligent recommendation engine based on search history
+- Improved chronological display using SortedDictionary for better performance
+- Enhanced event detail view with click-to-select functionality
+
+### Technical Improvements for Part 3
+
+**Self-Identified Enhancements:**
+- Integrated all three features through centralized DataManager class
+- Implemented advanced custom data structures (AVL Trees, Red-Black Trees, Min-Heap, Graph algorithms)
+- Added automatic service request creation when issues are reported
+- Developed route optimization system for municipal dispatch teams
+- Created comprehensive service request tracking with full status history
+- Improved data synchronization across multiple tree structures
+- Enhanced UI spacing and readability based on usability testing
+
+### Integration and Continuity
+
+**Cross-Feature Improvements:**
+- All reported issues now automatically create trackable service requests
+- Reference IDs are consistent across Report Issues and Service Request Status features
+- Centralized data management ensures data consistency
+- Unified color scheme and design language across all forms
+- Consistent navigation patterns with "Back to Menu" functionality
+
+---
+
+## 7. User Engagement Strategy
 The application implements multiple engagement strategies to build user trust and encourage active community participation:
 
 ### Transparent Feedback Loop (Issue Reporting)
